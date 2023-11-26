@@ -1,4 +1,3 @@
-import { expect } from '@playwright/test';
 import { Page } from 'playwright';
 import { NavigationUtil } from '../utils/NavigationUtil';
 import { PageUtils } from '../utils/PageUtils';

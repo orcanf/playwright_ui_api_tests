@@ -1,5 +1,4 @@
 import { Page } from 'playwright';
-import { FormUtil } from '../utils/FormUtil';
 import { NavigationUtil } from '../utils/NavigationUtil';
 import { PageUtils } from '../utils/PageUtils';
 import { SpecialElementsUtil } from '../utils/SpecialElementsUtil';
