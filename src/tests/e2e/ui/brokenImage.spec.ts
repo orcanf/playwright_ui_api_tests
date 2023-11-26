@@ -5,19 +5,19 @@ import { ElementsPage } from '../../../pages/ElementsPage';
 import { HomePage } from '../../../pages/HomePage';
 import { BrokenLinksImagesPage } from '../../../pages/BrokenLinksImagesPage';
 
-test('Verify the broken image', async ( { page }) => {
-    const homePage = new HomePage(page);
-    const elementsPage = new ElementsPage(page);
-    const brokenLinlsImagesPage = new BrokenLinksImagesPage(page);
+test('Verify the broken image', async ({ page }) => {
+  const homePage = new HomePage(page);
+  const elementsPage = new ElementsPage(page);
+  const brokenLinlsImagesPage = new BrokenLinksImagesPage(page);
 
-  
-    await homePage.navigateToHomePage('https://demoqa.com/');
-    await homePage.checkHomePageOpened();
-    await homePage.navigateToSubPage('Elements');
-    await elementsPage.checkElementsPage();
-    await elementsPage.navigateToSubMenu('Broken Links - Images');
-    await brokenLinlsImagesPage.checkBrokenLinksImagesPage();
-    await brokenLinlsImagesPage.verifyBrokenImage();
-    
 
-  });
+  await homePage.navigateToHomePage('https://demoqa.com/');
+  await homePage.checkHomePageOpened();
+  await homePage.navigateToSubPage('Elements');
+  await elementsPage.checkElementsPage();
+  await elementsPage.navigateToSubMenu('Broken Links - Images');
+  await brokenLinlsImagesPage.checkBrokenLinksImagesPage();
+  await brokenLinlsImagesPage.verifyBrokenImage();
+
+
+});

@@ -5,53 +5,53 @@ import { PageUtils } from '../utils/PageUtils';
 import { SpecialElementsUtil } from '../utils/SpecialElementsUtil';
 
 export class FormsPage {
-    private navigationUtil: NavigationUtil;
-    private pageUtils: PageUtils;
-    private formUtil: FormUtil; 
-    private specialElementsUtil: SpecialElementsUtil;
+  private navigationUtil: NavigationUtil;
+  private pageUtils: PageUtils;
+  private formUtil: FormUtil;
+  private specialElementsUtil: SpecialElementsUtil;
 
-    constructor(private page: Page) {
-      this.navigationUtil = new NavigationUtil(page);
-      this.pageUtils = new PageUtils(page);
-      this.formUtil = new FormUtil(page);
-      this.specialElementsUtil = new SpecialElementsUtil(page);
-    }
-  
-    async navigateToSubMenu(elementName: string) {
-        await this.navigationUtil.navigateToDesiredSubMenu(elementName);
-      }
+  constructor(private page: Page) {
+    this.navigationUtil = new NavigationUtil(page);
+    this.pageUtils = new PageUtils(page);
+    this.formUtil = new FormUtil(page);
+    this.specialElementsUtil = new SpecialElementsUtil(page);
+  }
 
-    async checkFormsPage() {
-        await this.pageUtils.checkPage("Practice Form");
-      }
+  async navigateToSubMenu(elementName: string) {
+    await this.navigationUtil.navigateToDesiredSubMenu(elementName);
+  }
 
-    async fillPracticeForm(fields: Record<string, string | number>) {
-        await this.formUtil.fillForm(fields);
-      }
+  async checkFormsPage() {
+    await this.pageUtils.checkPage("Practice Form");
+  }
 
-      async makeGenderSelection(gender: string) {
-        await this.specialElementsUtil.selectRadioButton(gender);
-      }
+  async fillPracticeForm(fields: Record<string, string | number>) {
+    await this.formUtil.fillForm(fields);
+  }
 
-      async makeHobbySelection(hobby) {
-        await this.specialElementsUtil.selectCheckBox(hobby);
-      }
+  async makeGenderSelection(gender: string) {
+    await this.specialElementsUtil.selectRadioButton(gender);
+  }
 
-      async uploadProfilePicture() {
-        await this.specialElementsUtil.uploadFile();
-      }
+  async makeHobbySelection(hobby) {
+    await this.specialElementsUtil.selectCheckBox(hobby);
+  }
 
-      async setBirthDate() {
-        await this.specialElementsUtil.selectDate('15','September','1992');
-      }
+  async uploadProfilePicture() {
+    await this.specialElementsUtil.uploadFile();
+  }
 
-      async setStateAndCity() {
-        await this.specialElementsUtil.selectStateAndCity('Haryana','Karnal');
-      }
+  async setBirthDate() {
+    await this.specialElementsUtil.selectDate('15', 'September', '1992');
+  }
 
-      async submitForm() {
-        await this.formUtil.clickSubmitButton('Submit');
-      }
+  async setStateAndCity() {
+    await this.specialElementsUtil.selectStateAndCity('Haryana', 'Karnal');
+  }
+
+  async submitForm() {
+    await this.formUtil.clickSubmitButton('Submit');
+  }
 
 
 }

@@ -3,21 +3,21 @@ import { PageUtils } from '../utils/PageUtils';
 import { SpecialElementsUtil } from '../utils/SpecialElementsUtil';
 
 export class BrokenLinksImagesPage {
-    private pageUtils: PageUtils;
-    private specialElementsUtil: SpecialElementsUtil;
+  private pageUtils: PageUtils;
+  private specialElementsUtil: SpecialElementsUtil;
 
-    constructor(private page: Page) {
-      this.pageUtils = new PageUtils(page);
-      this.specialElementsUtil = new SpecialElementsUtil(page);
-    }
-  
+  constructor(private page: Page) {
+    this.pageUtils = new PageUtils(page);
+    this.specialElementsUtil = new SpecialElementsUtil(page);
+  }
 
-    async checkBrokenLinksImagesPage() {
-        await this.pageUtils.checkPage("Broken Links - Images");
-      }
 
-      async verifyBrokenImage() {
-        await this.specialElementsUtil.verifyImage();
-      }
-    
+  async checkBrokenLinksImagesPage() {
+    await this.pageUtils.checkPage("Broken Links - Images");
+  }
+
+  async verifyBrokenImage() {
+    await this.specialElementsUtil.verifyImage();
+  }
+
 }

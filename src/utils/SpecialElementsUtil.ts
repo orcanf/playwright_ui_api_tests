@@ -5,11 +5,11 @@ import { expect } from '@playwright/test';
 const path = require('path');
 
 export class SpecialElementsUtil {
-  constructor(private page: Page) {}
+  constructor(private page: Page) { }
 
   async selectRadioButton(selection: string) {
     await this.page.click(`//label[text() = '${selection}']`);
-  
+
   }
 
   async selectCheckBox(selection: string) {
@@ -18,14 +18,14 @@ export class SpecialElementsUtil {
 
   async selectCheckboxes(...selectors) {
     for (const selector of selectors) {
-        const checkboxSelector = `//label[text() = '${selector}']`;
-        const checkbox = await this.page.$(checkboxSelector);
-        
-        if (checkbox) {
-            await checkbox.check();
-        } else {
-            console.error(`Checkbox not found for label: ${selector}`);
-        }
+      const checkboxSelector = `//label[text() = '${selector}']`;
+      const checkbox = await this.page.$(checkboxSelector);
+
+      if (checkbox) {
+        await checkbox.check();
+      } else {
+        console.error(`Checkbox not found for label: ${selector}`);
+      }
     }
   }
 
@@ -33,7 +33,7 @@ export class SpecialElementsUtil {
     await this.page.getByLabel('Select picture').setInputFiles(path.join(__dirname, 'download.png'));
   }
 
-  async selectDate(day: string, month: string, year: string ) {
+  async selectDate(day: string, month: string, year: string) {
     await this.page.getByTestId('dateOfBirthInput').click();
     await this.page.locator('.react-datepicker__month-select').selectOption(month);
     await this.page.locator('.react-datepicker__year-select').selectOption(year);
@@ -62,12 +62,12 @@ export class SpecialElementsUtil {
   }
 
   async verifyDragDrop() {
-    const dropSuccessIndicator = await this.page.locator('#droppable').first().textContent();  
+    const dropSuccessIndicator = await this.page.locator('#droppable').first().textContent();
     expect(dropSuccessIndicator).toBe('Dropped!');
   }
 
   async verifyToolTip(element) {
-    const toolTipText = await this.page.getByText('You hovered over the Button').textContent();  
+    const toolTipText = await this.page.getByText('You hovered over the Button').textContent();
     expect(toolTipText).toBe('You hovered over the Button');
   }
 
@@ -83,14 +83,14 @@ export class SpecialElementsUtil {
     await this.page.waitForLoadState('domcontentloaded');
     const images = await this.page.locator('img');
     const allImages = await images.all();
-    for await (const img of allImages){
-        const imgSrc = await img.getAttribute("src");
-        //@ts-ignore
-        if(imgSrc?.length > 1) {
-            const response = await this.page.request.get("https://demoqa.com/" + imgSrc);
-            console.log(response.status())
-            expect.soft(response.status(), "Failed to load: " + imgSrc).toBe(200);
-        }
+    for await (const img of allImages) {
+      const imgSrc = await img.getAttribute("src");
+      //@ts-ignore
+      if (imgSrc?.length > 1) {
+        const response = await this.page.request.get("https://demoqa.com/" + imgSrc);
+        console.log(response.status())
+        expect.soft(response.status(), "Failed to load: " + imgSrc).toBe(200);
+      }
     }
   }
 }

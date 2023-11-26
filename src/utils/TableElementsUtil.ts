@@ -2,7 +2,7 @@ import { Page } from 'playwright';
 import { expect } from '@playwright/test';
 
 export class TableElementsUtil {
-  constructor(private page: Page) {}
+  constructor(private page: Page) { }
 
 
   async checkHomePageTitle(title: string) {

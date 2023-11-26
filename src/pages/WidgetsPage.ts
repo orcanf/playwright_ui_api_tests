@@ -5,28 +5,28 @@ import { PageUtils } from '../utils/PageUtils';
 import { SpecialElementsUtil } from '../utils/SpecialElementsUtil';
 
 export class WidgetsPage {
-    private pageUtils: PageUtils;
-    private specialElementsUtil: SpecialElementsUtil;
-    private navigationUtil: NavigationUtil;
+  private pageUtils: PageUtils;
+  private specialElementsUtil: SpecialElementsUtil;
+  private navigationUtil: NavigationUtil;
 
-    constructor(private page: Page) {
+  constructor(private page: Page) {
 
-      this.pageUtils = new PageUtils(page);
-      this.specialElementsUtil = new SpecialElementsUtil(page);
-      this.navigationUtil = new NavigationUtil(page);
-    }
-  
+    this.pageUtils = new PageUtils(page);
+    this.specialElementsUtil = new SpecialElementsUtil(page);
+    this.navigationUtil = new NavigationUtil(page);
+  }
 
-    async checkWidgetsPage() {
-        await this.pageUtils.checkPage("Widgets");
-      }
-    
-      async startProgressBar() {
-        await this.specialElementsUtil.startProgressBar();
-      }
 
-      async navigateToSubMenu(elementName: string) {
-        await this.navigationUtil.navigateToDesiredSubMenu(elementName);
-      }
+  async checkWidgetsPage() {
+    await this.pageUtils.checkPage("Widgets");
+  }
+
+  async startProgressBar() {
+    await this.specialElementsUtil.startProgressBar();
+  }
+
+  async navigateToSubMenu(elementName: string) {
+    await this.navigationUtil.navigateToDesiredSubMenu(elementName);
+  }
 
 }

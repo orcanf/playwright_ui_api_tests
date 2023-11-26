@@ -1,7 +1,7 @@
 import { Page } from 'playwright';
 
 export class FormUtil {
-  constructor(private page: Page) {}
+  constructor(private page: Page) { }
 
   async fillForm(fields: Record<string, string | number>) {
     for (const [fieldName, value] of Object.entries(fields)) {

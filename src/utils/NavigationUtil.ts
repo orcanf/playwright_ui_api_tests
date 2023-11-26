@@ -1,7 +1,7 @@
 import { Page } from 'playwright';
 
 export class NavigationUtil {
-  constructor(private page: Page) {}
+  constructor(private page: Page) { }
 
   async navigateToDesiredSubPage(subPageName: string) {
     await this.page.click(`//div/h5[text()='${subPageName}']`);
